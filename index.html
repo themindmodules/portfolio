@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en" class="no-js"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Utkarsh Upadhyay | Electronics Design Portfolio</title>
+<meta name="description" content="Utkarsh Upadhyay, electronics engineer. KiCad PCBs, STM32 and ESP32 boards, wearables, power electronics and LTspice-verified circuits.">
+<meta name="theme-color" content="#14110e">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="canonical" href="https://themindmodules.github.io/portfolio/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Utkarsh Upadhyay | Electronics Design Portfolio">
+<meta property="og:description" content="KiCad PCBs, STM32 and ESP32 boards, wearables, power electronics and LTspice-verified circuits. See my projects.">
+<meta property="og:url" content="https://themindmodules.github.io/portfolio/">
+<meta property="og:image" content="https://themindmodules.github.io/portfolio/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Utkarsh Upadhyay | Electronics Design Portfolio">
+<meta name="twitter:description" content="KiCad PCBs, STM32 and ESP32 boards, wearables, power electronics and LTspice-verified circuits.">
+<meta name="twitter:image" content="https://themindmodules.github.io/portfolio/img/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600&family=Caveat:wght@500&display=swap" rel="stylesheet">
+<script>document.documentElement.className='js'</script>
+<style>
+:root{
+ --paper:#f6f0e6;--ink:#231f1a;--soft:#6b6257;--clay:#c4572f;--moss:#3f5a46;--card:#fffaf0;--line:#e2d8c6;
+ --trace:rgba(63,90,70,.22);--pulse:#c4572f;--nav:rgba(246,240,230,.78);
+ --ease:cubic-bezier(.22,.8,.24,1);
+ --pad:clamp(16px,4vw,32px);
+}
+@media (prefers-color-scheme: dark){:root{
+ --paper:#14110e;--ink:#f1e9da;--soft:#a79c8b;--clay:#e5845c;--moss:#8fb399;--card:#1f1b16;--line:#322c24;
+ --trace:rgba(143,179,153,.2);--pulse:#e5845c;--nav:rgba(20,17,14,.78);
+}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:clamp(16px,1.05vw + 12px,18px)/1.65 Inter,system-ui,sans-serif;overflow-x:hidden}
+img{max-width:100%;height:auto}
+h1,h2,h3,h4{font-family:Fraunces,Georgia,serif;font-weight:700;line-height:1.15;margin:0}
+a{color:var(--clay)}
+.w{max-width:1080px;margin:0 auto;padding:0 var(--pad);position:relative;z-index:1}
+
+/* ---------- background ---------- */
+.bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;
+ background:
+  radial-gradient(900px 600px at 85% -5%,color-mix(in srgb,var(--clay) 18%,transparent),transparent 70%),
+  radial-gradient(800px 600px at -10% 40%,color-mix(in srgb,var(--moss) 20%,transparent),transparent 70%),
+  var(--paper)}
+.bg:after{content:"";position:absolute;inset:0;
+ background-image:radial-gradient(var(--line) 1px,transparent 1.4px);background-size:26px 26px;opacity:.55;
+ mask-image:linear-gradient(to bottom,#000,transparent 85%);-webkit-mask-image:linear-gradient(to bottom,#000,transparent 85%)}
+.bg svg{position:absolute;left:50%;top:-5%;width:max(1400px,100%);height:120%;transform:translate(-50%,calc(var(--py,0)*-1px));will-change:transform;opacity:.9}
+.bg .tr{fill:none;stroke:var(--trace);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.bg .sig{fill:none;stroke:var(--pulse);stroke-width:2.5;stroke-linecap:round;stroke-dasharray:40 900;animation:sig 7s linear infinite;opacity:.7}
+.bg .sig:nth-of-type(2){animation-duration:9s;animation-delay:-3s}.bg .sig:nth-of-type(3){animation-duration:11s;animation-delay:-6s}
+.bg .pad{fill:var(--trace)}
+@keyframes sig{to{stroke-dashoffset:-940}}
+
+/* ---------- nav ---------- */
+.bar{position:fixed;left:0;top:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--moss),var(--clay));z-index:60}
+nav{position:sticky;top:0;z-index:50;transition:background .35s,box-shadow .35s,padding .35s}
+nav.stuck{background:var(--nav);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding-block:20px;transition:padding .35s}
+nav.stuck .nav{padding-block:12px}
+.logo{font-family:Fraunces,serif;font-size:1.2rem;font-weight:700;color:var(--ink);text-decoration:none}
+.logo i{color:var(--clay);font-style:normal}
+.links{display:flex;gap:6px;align-items:center}
+.links a{color:var(--soft);text-decoration:none;font-size:.95rem;padding:8px 14px;border-radius:99px;transition:color .25s,background .25s}
+.links a:hover,.links a.on{color:var(--ink);background:color-mix(in srgb,var(--clay) 14%,transparent)}
+.links a.cta{background:var(--ink);color:var(--paper)}
+.links a.cta:hover{background:var(--clay);color:#fff}
+.burger{display:none;width:44px;height:44px;border:0;background:transparent;color:var(--ink);cursor:pointer;border-radius:12px}
+.burger span{display:block;width:22px;height:2px;background:currentColor;margin:5px auto;transition:transform .35s var(--ease),opacity .2s}
+.burger[aria-expanded=true] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded=true] span:nth-child(2){opacity:0}
+.burger[aria-expanded=true] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ---------- reveal on scroll ---------- */
+.js .rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
+.js .rv.l{transform:translateX(-40px)}.js .rv.r{transform:translateX(40px)}.js .rv.z{transform:scale(.94)}
+.js .rv.in{opacity:1;transform:none}
+
+/* ---------- hero ---------- */
+.hero{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(24px,5vw,56px);align-items:center;padding:clamp(20px,5vw,56px) 0 clamp(40px,7vw,72px)}
+.hero>*,.proj>*{min-width:0}
+.hand{font-family:Caveat,cursive;font-size:clamp(1.2rem,2.4vw,1.5rem);color:var(--clay);display:inline-block;transform:rotate(-2deg)}
+.hero h1{font-size:clamp(2.2rem,6.2vw,4rem);margin:6px 0 14px}
+.hero h1 em{color:var(--clay);font-style:italic;background:linear-gradient(var(--clay),var(--clay)) 0 100%/0 3px no-repeat;transition:background-size 1.2s var(--ease) .6s}
+.in h1 em,h1.in em{background-size:100% 3px}
+.hero p{color:var(--soft);max-width:50ch;margin:0 0 18px}
+.btn{display:inline-block;margin:6px 10px 0 0;padding:12px 22px;border-radius:99px;text-decoration:none;font-weight:600;font-size:.95rem;transition:transform .3s var(--ease),box-shadow .3s,background .3s,color .3s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 22px rgba(0,0,0,.2)}
+.b1{background:var(--ink);color:var(--paper)}.b2{border:1.5px solid var(--ink);color:var(--ink)}
+.b2:hover{background:var(--ink);color:var(--paper)}
+
+.studio{background:radial-gradient(circle at 50% 35%,#3a3f47,#15171b 75%);border-radius:16px;padding:18px 14px 12px;box-shadow:0 22px 50px rgba(0,0,0,.28);transition:transform .5s var(--ease),box-shadow .5s;transform-style:preserve-3d}
+.studio:hover{box-shadow:0 30px 64px rgba(0,0,0,.38)}
+.studio img{width:100%;display:block;border:0!important;background:transparent!important;border-radius:0!important;animation:float 6s ease-in-out infinite}
+.cap2{color:#cfd3d9;font-size:.8rem;text-align:center;letter-spacing:.03em;margin-top:6px}
+@keyframes float{50%{transform:translateY(-8px)}}
+
+/* ---------- facts ---------- */
+.facts{display:grid;grid-template-columns:repeat(4,1fr);border-block:1.5px solid var(--ink);margin:6px 0 8px}
+.facts div{padding:20px 14px;border-right:1px solid var(--line)}.facts div:last-child{border:0}
+.facts b{font-family:Fraunces,serif;font-size:clamp(1.4rem,3vw,2rem);display:block}.facts small{color:var(--soft)}
+
+/* ---------- sections ---------- */
+h2.sec{font-size:clamp(1.7rem,4vw,2.4rem);margin:clamp(56px,9vw,96px) 0 8px}
+.secsub{color:var(--soft);margin:0 0 30px;max-width:56ch}
+.proj{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(22px,4vw,44px);align-items:center;margin:0 0 clamp(48px,8vw,84px)}
+.proj.flip .pics{order:2}
+.pics img{width:100%;border-radius:12px;border:1px solid var(--line);background:#fff;display:block;transition:transform .5s var(--ease),box-shadow .5s}
+.pics .two{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.pics .two img:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 14px 28px rgba(0,0,0,.2)}
+.kicker{font-size:.76rem;letter-spacing:.09em;text-transform:uppercase;color:var(--moss);font-weight:600}
+.proj h3{font-size:clamp(1.4rem,3vw,1.85rem);margin:6px 0 10px}
+.proj p{margin:0 0 12px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}
+.tags span{background:var(--card);border:1px solid var(--line);padding:2px 10px;border-radius:6px;font-size:.8rem;transition:transform .25s,border-color .25s}
+.tags span:hover{transform:translateY(-2px);border-color:var(--clay)}
+.status{border-left:3px solid var(--clay);padding:8px 14px;background:var(--card);font-size:.92rem;color:var(--soft);border-radius:0 10px 10px 0}
+.status b{color:var(--ink)}
+.learn{font-family:Caveat,cursive;font-size:1.35rem;color:var(--clay);margin-top:10px;line-height:1.25}
+
+.mini{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,290px),1fr));gap:16px}
+.mini article{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;transition:transform .4s var(--ease),box-shadow .4s,border-color .4s}
+.mini article:hover{transform:translateY(-6px);box-shadow:0 18px 34px rgba(0,0,0,.14);border-color:var(--clay)}
+.mini h4{font-size:1.15rem;margin:4px 0 6px}
+.mini p{font-size:.93rem;color:var(--soft);margin:0}
+
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px 44px}
+.skills div{border-top:1px solid var(--line);padding-top:12px;transition:border-color .3s,transform .3s var(--ease)}
+.skills div:hover{border-color:var(--clay);transform:translateX(6px)}
+.skills b{font-family:Fraunces,serif}.skills p{margin:4px 0 0;color:var(--soft);font-size:.95rem}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:20px;counter-reset:s}
+.steps div{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;transition:transform .4s var(--ease)}
+.steps div:hover{transform:translateY(-5px)}
+.steps div:before{content:counter(s);font-family:Fraunces,serif;font-size:2.4rem;color:var(--clay);display:block;line-height:1}
+.steps b{display:block;margin-top:6px}.steps p{margin:4px 0 0;color:var(--soft);font-size:.92rem}
+
+/* ---------- contact ---------- */
+.contact{background:var(--ink);color:var(--paper);border-radius:22px;padding:clamp(32px,6vw,56px) var(--pad);margin:clamp(60px,9vw,100px) 0 40px;text-align:center;position:relative;overflow:hidden}
+.contact:before{content:"";position:absolute;inset:-40%;background:conic-gradient(from 0deg,transparent,color-mix(in srgb,var(--clay) 30%,transparent),transparent 40%);animation:spin 12s linear infinite}
+.contact>*{position:relative}
+@keyframes spin{to{transform:rotate(360deg)}}
+.contact h2{font-size:clamp(1.7rem,4vw,2.3rem);margin-bottom:10px}
+.contact p{opacity:.85;max-width:50ch;margin:0 auto 22px}
+.ctas{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.ctas a{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:99px;text-decoration:none;font-weight:600;font-size:.95rem;transition:transform .3s var(--ease),background .3s}
+.ctas a:hover{transform:translateY(-3px)}
+.ctas .m{background:var(--clay);color:#fff}
+.ctas .m2{background:transparent;color:var(--paper);border:1.5px solid color-mix(in srgb,var(--paper) 40%,transparent)}
+.ctas .ig{background:linear-gradient(45deg,#f09433,#dc2743 55%,#bc1888);color:#fff}
+.ctas .m2:hover{background:color-mix(in srgb,var(--paper) 15%,transparent)}
+footer{color:var(--soft);font-size:.85rem;padding:0 0 calc(40px + env(safe-area-inset-bottom));text-align:center}
+.totop{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom));width:46px;height:46px;border-radius:50%;border:0;background:var(--ink);color:var(--paper);font-size:1.2rem;cursor:pointer;opacity:0;transform:translateY(20px);pointer-events:none;transition:.4s var(--ease);z-index:55}
+.totop.show{opacity:1;transform:none;pointer-events:auto}
+
+/* ---------- responsive ---------- */
+@media(max-width:860px){
+ .hero,.proj{grid-template-columns:1fr}.proj.flip .pics{order:0}
+ .hero{text-align:left}
+ .facts{grid-template-columns:1fr 1fr}.facts div{border-bottom:1px solid var(--line)}
+ .facts div:nth-child(2){border-right:0}
+ .burger{display:block}
+ .links{position:absolute;left:var(--pad);right:var(--pad);top:100%;flex-direction:column;align-items:stretch;gap:4px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:10px;box-shadow:0 20px 40px rgba(0,0,0,.2);opacity:0;transform:translateY(-10px) scale(.98);pointer-events:none;transition:.35s var(--ease)}
+ .links.open{opacity:1;transform:none;pointer-events:auto}
+ .links a{padding:13px 16px;text-align:left}
+ .js .rv.l,.js .rv.r{transform:translateY(34px)}
+}
+@media(max-width:480px){.btn{width:100%;text-align:center;margin-right:0}.ctas a{width:100%;justify-content:center;font-size:.85rem;padding:13px 12px;overflow-wrap:anywhere;text-align:center;white-space:nowrap}}
+@media(hover:none){.studio:hover{box-shadow:0 22px 50px rgba(0,0,0,.28)}}
+@media (prefers-reduced-motion: reduce){
+ html{scroll-behavior:auto}
+ *,*:before,*:after{animation:none!important;transition-duration:.01ms!important}
+ .js .rv{opacity:1;transform:none}
+}
+</style></head>
+<body>
+
+<!-- animated circuit background -->
+<div class="bg" aria-hidden="true">
+<svg viewBox="0 0 1400 1400" preserveAspectRatio="xMidYMin slice">
+ <g class="tr">
+  <path id="t1" d="M-20 180H260L330 250H640L700 190H1000L1060 250H1420"/>
+  <path id="t2" d="M-20 420H180L250 490H520V620H820L900 540H1180L1250 610H1420"/>
+  <path id="t3" d="M-20 760H420L490 830H760L830 900H1100V1040H1420"/>
+  <path id="t4" d="M-20 1090H300L370 1160H700L760 1100H1040L1110 1170H1420"/>
+  <path d="M520 -20V120L580 180M900 -20V200M1180 -20V160L1240 220M300 1420V1250L360 1190M980 1420V1260"/>
+ </g>
+ <path class="sig" d="M-20 180H260L330 250H640L700 190H1000L1060 250H1420"/>
+ <path class="sig" d="M-20 760H420L490 830H760L830 900H1100V1040H1420"/>
+ <path class="sig" d="M-20 420H180L250 490H520V620H820L900 540H1180L1250 610H1420"/>
+ <g class="pad"><circle cx="260" cy="180" r="5"/><circle cx="640" cy="250" r="5"/><circle cx="1000" cy="190" r="5"/><circle cx="520" cy="620" r="5"/><circle cx="1180" cy="540" r="5"/><circle cx="420" cy="760" r="5"/><circle cx="1100" cy="1040" r="5"/><circle cx="300" cy="1090" r="5"/><circle cx="1040" cy="1100" r="5"/></g>
+</svg></div>
+<div class="bar" id="bar"></div>
+
+<nav id="nav"><div class="w nav">
+ <a class="logo" href="#top">Utkarsh<i>.</i></a>
+ <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="links"><span></span><span></span><span></span></button>
+ <div class="links" id="links">
+  <a href="#work">Work</a><a href="#more">More</a><a href="#skills">What I do</a><a href="#process">Process</a><a class="cta" href="#talk">Say hi</a>
+ </div>
+</div></nav>
+
+<div class="w" id="top">
+
+<section class="hero">
+<div>
+ <span class="hand rv">hello, I'm Utkarsh, an electronics engineer</span>
+ <h1 class="rv" style="--d:.1s">I turn rough ideas into <em>boards that actually work.</em></h1>
+ <p class="rv" style="--d:.2s">Wearables, motor drivers, measuring instruments, STM32 and ESP32 gadgets. I draw the circuit, simulate the risky parts, lay out the PCB, and even model the case. Below are real projects from my desk, including the things that went wrong.</p>
+ <div class="rv" style="--d:.3s"><a class="btn b1" href="#work">See my projects</a><a class="btn b2" href="#talk">Start a project</a></div>
+</div>
+<div class="studio rv r z" style="--d:.2s"><img src="img/p_car.png" alt="3D render of my four-motor Wi-Fi controller board" width="1768" height="1288"><div class="cap2">4-motor Wi-Fi controller, 3D render of my design</div></div>
+</section>
+
+<div class="facts">
+ <div class="rv" style="--d:0s"><b><span data-count="12">12</span>+</b><small>projects in this portfolio</small></div>
+ <div class="rv" style="--d:.08s"><b>4-layer</b><small>PCB in a 17 x 32 mm band</small></div>
+ <div class="rv" style="--d:.16s"><b>1 mV to 400 V</b><small>auto-ranging multimeter front end</small></div>
+ <div class="rv" style="--d:.24s"><b>KiCad + LTspice</b><small>design and prove before ordering</small></div>
+</div>
+
+<h2 class="sec rv" id="work">Things I've made</h2>
+<p class="secsub rv">The three big ones first. Each one says honestly how far it got.</p>
+
+<!-- N1 -->
+<section class="proj">
+<div class="pics rv l"><div class="studio"><img src="img/p_n1_bottom.png" alt="3D render of the N1 band PCB, sensor side" loading="lazy" width="1568" height="1064"><div class="cap2">N1 band board, sensor side, 3D render of my design</div></div>
+<div class="two"><img src="img/n1_charge_sim.png" alt="LTspice charging simulation of the 150 mAh cell" loading="lazy"><img src="img/r_n1_bottom.png" alt="Straight-on render of the N1 sensor side" loading="lazy"></div></div>
+<div class="rv r">
+ <div class="kicker">Wearable · PCB + case + simulation</div>
+ <h3>N1 slim fitness band and charging dock</h3>
+ <p>A tiny band pod that tracks heart rate, SpO2 and motion over Bluetooth. Everything fits on a 4-layer board of 17 x 32 mm: an nRF52840 module, a MAX30102 optical sensor, an LSM6DSL motion sensor, a LiPo charger and two clean power rails. It charges from a little dock with pogo pins.</p>
+ <p>I also modelled the 3D-printable case, strap passage and dock in OpenSCAD and checked the fit against the real board.</p>
+ <div class="tags"><span>nRF52840</span><span>MAX30102 PPG</span><span>LSM6DSL</span><span>MCP73831 charger</span><span>4-layer</span><span>pogo dock</span><span>LTspice</span><span>OpenSCAD</span></div>
+ <div class="status"><b>Status:</b> design done. Gerbers, BOM, pick-and-place, STLs and a full verification report are ready to send to a fab. Firmware tests (BLE, IMU stream, PPG stream) written.</div>
+ <div class="learn">first idea was 20 x 20 mm. maths said no, USB-C alone needs 22.</div>
+</div></section>
+
+<!-- DMM -->
+<section class="proj flip">
+<div class="pics rv r"><img src="img/dmm_autorange.png" alt="LTspice result of the multimeter auto-ranging" loading="lazy">
+<div class="two"><img src="img/dmm_freq.png" alt="Frequency response of the multimeter front end" loading="lazy"><img src="img/heart555.png" alt="Layout sketch of a heart-shaped 555 LED board" loading="lazy"></div></div>
+<div class="rv l">
+ <div class="kicker">Instrument · analog design + simulation</div>
+ <h3>Auto-ranging multimeter, 1 mV to 400 V, DC and AC</h3>
+ <p>A front end with three zero-drift op-amp buffers, a 10 megaohm input and a 24-bit delta-sigma ADC. The MCU picks the range on its own and works out true RMS in software, so even 1 mV AC reads cleanly. I wrote a Python script that builds the whole LTspice circuit, so changing a value is one edit.</p>
+ <p>The same thinking went into a smaller BLE pocket multimeter (M1) that sends readings to a phone.</p>
+ <div class="tags"><span>LTC2057 op-amps</span><span>ADS131M-class ADC</span><span>auto-range logic</span><span>true RMS</span><span>LTspice</span><span>Python</span></div>
+ <div class="status"><b>Status:</b> verified in simulation, with plots. M1 pocket version has a KiCad schematic with ERC. Not built yet.</div>
+</div></section>
+
+<!-- Car -->
+<section class="proj">
+<div class="pics rv l"><div class="studio"><img src="img/p_car.png" alt="3D render of the motor controller PCB" loading="lazy" width="1768" height="1288"><div class="cap2">Rev A, 100 x 90 mm, 3D render of my design</div></div><div class="two"><img src="img/board_top.png" alt="Flat top view of the routed board" loading="lazy"><img src="img/esp32s3_schematic.svg" alt="ESP32-S3 base board schematic" loading="lazy"></div></div>
+<div class="rv r">
+ <div class="kicker">Power + motors · 100 x 90 mm, 2 layers</div>
+ <h3>Wi-Fi four-motor controller</h3>
+ <p>Four DC motors controlled over Wi-Fi from a 2S Li-ion battery. Each motor has its own H-bridge made of discrete MOSFETs, with reverse-battery protection, a surge clamp and a 3.3 V buck supply. Six little LEDs show power, Wi-Fi, link and low battery.</p>
+ <p>I ran LTspice on shoot-through, noise, supply filtering and current sensing before routing, then added filters so motor noise can't reset the ESP.</p>
+ <div class="tags"><span>ESP-12F</span><span>H-bridge</span><span>TPS54202 buck</span><span>74HC595</span><span>Freerouting</span><span>DRC</span></div>
+ <div class="status"><b>Status:</b> routed, 0 unconnected nets. Not fabricated yet. I wrote down its weak points myself (thin copper for 8 A, no hardware interlock). They are in my design notes.</div>
+ <div class="learn">routing 8 A on 1.2 mm tracks? nope. noted, fix in rev B.</div>
+</div></section>
+
+<h2 class="sec rv" id="more">More from the bench</h2>
+<p class="secsub rv">Smaller builds, firmware and experiments.</p>
+<div class="mini">
+ <article class="rv" style="--d:0s"><div class="kicker">Firmware + control</div><h4>Peltier temperature controller</h4><p>STM32F411 reads a PT100 through a MAX31865, runs a PID loop toward a 15 °C setpoint and drives a 25 kHz PWM. Live telemetry streams over USB. I documented why 15 °C needs a cooler, not a heater.</p></article>
+ <article class="rv" style="--d:.08s"><div class="kicker">Display + ADC</div><h4>Live waveform scope on a TFT</h4><p>A 1 kHz PWM is read back through an RC filter and the ADC, then drawn as a scrolling trace on a 1.69" ST7789 display. SPI sped up to 18 MHz so redraw feels smooth.</p></article>
+ <article class="rv" style="--d:.16s"><div class="kicker">Signal generator</div><h4>PWM generator and scope helper</h4><p>STM32F411 Black Pill project that generates PWM on a timer and reads it back through the ADC, with a guide on voltage ranges and scaling.</p></article>
+ <article class="rv" style="--d:0s"><div class="kicker">Wireless</div><h4>STM32WB55 BLE and sensors</h4><p>BLE experiments plus drivers for an accelerometer, TMP117 temperature, TCS34725 colour and SpO2 sensors.</p></article>
+ <article class="rv" style="--d:.08s"><div class="kicker">Data acquisition</div><h4>AD7606 multi-channel ADC</h4><p>Bring-up of the 16-bit simultaneous-sampling AD7606 with STM32.</p></article>
+ <article class="rv" style="--d:.16s"><div class="kicker">Embedded boards</div><h4>ESP32 and ESP32-S3 learning kits</h4><p>Base boards with LEDs for Wi-Fi and BLE state, USB-C, and every spare pin on headers, with a full pin map. Schematic and ERC done.</p></article>
+ <article class="rv" style="--d:0s"><div class="kicker">Just for fun</div><h4>Heart-shaped 555 fade light</h4><p>A heart PCB with a ring of LEDs that fade, laid out by script. Layout sketch only so far, but it shows I like making boards look nice, not just work.</p></article>
+ <article class="rv" style="--d:.08s"><div class="kicker">Content</div><h4>Explainer videos for electronics</h4><p>I make short videos explaining circuits, like the floating MOSFET gate, on Instagram as <a href="https://www.instagram.com/themindmodules/" target="_blank" rel="noopener">@themindmodules</a>. Handy if you need demo clips for your product.</p></article>
+ <article class="rv" style="--d:.16s"><div class="kicker">Tools</div><h4>Python design automation</h4><p>Schematic and netlist generators, auto-routing runs and DRC checks, so revisions take hours, not days.</p></article>
+</div>
+
+<h2 class="sec rv" id="skills">What I can do for you</h2>
+<p class="secsub rv">Not only PCBs. A product needs more than a board.</p>
+<div class="skills">
+ <div class="rv"><b>Circuit and PCB design</b><p>Schematics, 2 to 4 layer layout in KiCad, ERC and DRC, Gerbers, BOM, pick-and-place.</p></div>
+ <div class="rv" style="--d:.06s"><b>Simulation</b><p>LTspice for power stages, filters, chargers, ADC front ends. You see proof before you pay for boards.</p></div>
+ <div class="rv" style="--d:.12s"><b>Microcontrollers</b><p>STM32 (F4, G4, WB), ESP32, nRF52840, Arduino. Pin maps, boot modes, bring-up firmware.</p></div>
+ <div class="rv"><b>Wearables and watch bands</b><p>Tiny boards, LiPo charging, optical heart-rate sensors, motion sensors, charging docks.</p></div>
+ <div class="rv" style="--d:.06s"><b>Displays and LEDs</b><p>TFT and OLED interfaces, status LED rows, fast SPI drawing.</p></div>
+ <div class="rv" style="--d:.12s"><b>Power electronics</b><p>Buck supplies, battery protection, H-bridge motor drivers, PID temperature control.</p></div>
+ <div class="rv"><b>3D case and mechanics</b><p>Parametric OpenSCAD cases and docks with real fit checks, ready for printing.</p></div>
+ <div class="rv" style="--d:.06s"><b>Docs and video</b><p>Clear design notes, pin tables and short explainer videos for your team or customers.</p></div>
+</div>
+
+<h2 class="sec rv" id="process">How a project goes</h2>
+<p class="secsub rv">No surprises, short messages, files you can open.</p>
+<div class="steps">
+ <div class="rv"><b>Tell me the goal</b><p>Size, power, parts, budget. A napkin sketch is fine.</p></div>
+ <div class="rv" style="--d:.08s"><b>I draw and simulate</b><p>You get the schematic and the key plots first.</p></div>
+ <div class="rv" style="--d:.16s"><b>Layout and checks</b><p>PCB, DRC clean, 3D check against the case.</p></div>
+ <div class="rv" style="--d:.24s"><b>Handover</b><p>Gerbers, BOM, source files, a plain-English notes file.</p></div>
+</div>
+
+<section class="contact rv z" id="talk">
+ <h2>Got a board in your head?</h2>
+ <p>Send me a message with what it must do. I'll tell you honestly what it will take, or if someone else would suit you better.</p>
+ <div class="ctas">
+  <a class="m" href="mailto:riseutkarsh26@gmail.com?subject=Project%20enquiry">&#9993; riseutkarsh26@gmail.com</a>
+  <a class="m2" href="mailto:technicalshubham707@gmail.com?subject=Project%20enquiry">&#9993; technicalshubham707@gmail.com</a>
+  <a class="ig" href="https://www.instagram.com/themindmodules/" target="_blank" rel="noopener">Instagram @themindmodules</a>
+ </div>
+</section>
+<footer>&copy; Utkarsh Upadhyay. Renders are 3D views of my own designs.</footer>
+</div>
+
+<button class="totop" id="totop" aria-label="Back to top">&#8593;</button>
+
+<script>
+(function(){
+ var d=document,w=window,nav=d.getElementById('nav'),bar=d.getElementById('bar'),bg=d.querySelector('.bg'),top=d.getElementById('totop');
+ var reduce=w.matchMedia('(prefers-reduced-motion: reduce)').matches,lastY=0;
+ var b=d.getElementById('burger'),l=d.getElementById('links');
+ function close(){l.classList.remove('open');b.setAttribute('aria-expanded','false')}
+
+ /* scroll: progress bar, sticky nav, parallax bg, back-to-top */
+ var tick=false;
+ function onScroll(){
+  var y=w.scrollY,h=d.documentElement.scrollHeight-w.innerHeight;
+  bar.style.transform='scaleX('+(h>0?y/h:0)+')';
+  nav.classList.toggle('stuck',y>10);
+  top.classList.toggle('show',y>600);
+  if(l.classList.contains('open')&&Math.abs(y-lastY)>40)close();lastY=y;
+  if(!reduce)bg.style.setProperty('--py',(y*0.12).toFixed(1));
+  tick=false;
+ }
+ w.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(onScroll)}},{passive:true});
+ onScroll();
+ top.addEventListener('click',function(){w.scrollTo({top:0})});
+
+ /* reveal on scroll */
+ var els=[].slice.call(d.querySelectorAll('.rv'));
+ if('IntersectionObserver' in w){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+   if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);
+    var c=e.target.querySelector('[data-count]');if(c)count(c)}
+  })},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(el){io.observe(el)});
+ }else{els.forEach(function(el){el.classList.add('in')})}
+
+ /* count-up */
+ function count(el){
+  var to=+el.getAttribute('data-count');if(reduce){el.textContent=to;return}
+  var t0=null;(function f(t){if(!t0)t0=t;var p=Math.min((t-t0)/1100,1);
+   el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)})(performance.now());
+ }
+
+ /* mobile menu */
+ b.addEventListener('click',function(){var o=l.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+ l.addEventListener('click',function(e){if(e.target.tagName==='A')close()});
+ d.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+ d.addEventListener('click',function(e){if(!nav.contains(e.target))close()});
+
+ /* active link highlight */
+ var links=[].slice.call(l.querySelectorAll('a[href^="#"]:not(.cta)'));
+ if('IntersectionObserver' in w){
+  var so=new IntersectionObserver(function(es){es.forEach(function(e){
+   if(e.isIntersecting)links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id)})
+  })},{rootMargin:'-40% 0px -55% 0px'});
+  links.forEach(function(a){var s=d.querySelector(a.getAttribute('href'));if(s)so.observe(s)});
+ }
+
+ /* subtle 3D tilt on studio cards (mouse only) */
+ if(!reduce&&w.matchMedia('(hover:hover)').matches){
+  [].forEach.call(d.querySelectorAll('.studio'),function(c){
+   c.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+    c.style.transform='perspective(900px) rotateY('+(x*7)+'deg) rotateX('+(-y*7)+'deg) translateY(-4px)'});
+   c.addEventListener('mouseleave',function(){c.style.transform=''});
+  });
+ }
+})();
+</script>
+</body></html>
